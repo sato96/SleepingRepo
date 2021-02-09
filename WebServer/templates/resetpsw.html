@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html style="background: url(static/css/Resources/moon-tree-wallpaper.jpg);background-size: cover; background-repeat: no-repeat; height: 100%; width: 100%">
+<head>
+	<script type = "text/javascript" src =  "{{ url_for('static', filename='js/User.js') }}"></script>
+	
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styleResetPsw.css')}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<!-- classe text, tutte le scritte bianche-->
+	<div class="text">
+		<h1>Welcome to the first sleeping data repository</h1>
+		<h2>Reset your password</h2>
+
+		<form id="form">
+		  	<input type="email" placeholder="Please insert your email" id="email" name="email" required><br>
+		  	<input type="button" onclick="resetmail()"value="Reset">
+		</form>

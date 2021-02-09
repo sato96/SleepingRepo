@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html style="background: url(static/css/Resources/moon-tree-wallpaper.jpg);background-size: cover; background-repeat: no-repeat; height: 100%; width: 100%">
+<head>
+<!-- questi due input sono solo delle variabili di appoggio-->
+<input type="button" class="count" id="count" value="0.0">
+<input type="button" class="count" id="report" value="Done! ">
+
+
+</head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styleNavBar.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styleUpload.css')}}">
+	<script type = "text/javascript" src =  "{{ url_for('static', filename='js/User.js') }}"></script>
+	<script type = "text/javascript" src =  "{{ url_for('static', filename='js/Data.js') }}"></script>
+
+<!-- Navigation -->
+<nav>
+	<div class="topnav">
+		<a href="{{ url_for('GET', uri='download') }}">Download</a>
+		<a class="active" href="{{ url_for('GET', uri='upload') }}">Upload</a>
+		<a href="#contact">Contact</a>
+		<a href="{{ url_for('GET', uri='aboutus') }}">About</a>
+		<a onclick="delCookie()" href="{{ url_for('GET', uri='login') }}">Logout</a>
+	</div>
+
+</nav>
+<div class="container" style="margin: auto; max-width: 800px; box-sizing: border-box; height: 90%">
+<body onLoad="checkPermission(); upHandle();">
+
+	<!-- classe text, tutte le scritte bianche-->
+	<div class="text">
+		<h2>Choose your file then click "Upload"</h2><br>
+		<form id="form"><!--
+			<input type="file" accept= ".json, .edf, .asc, .csv" placeholder = "No file selected" id="file" name="Data" value="Insert file">
+		-->
+			<label for="test" class="label">
+  				<div class="div" id="div">Click or drop your files here</div>
+  					<input type="file" multiple="multiple" accept= ".json, .edf, .asc, .csv" id="file" name="Data">
+			</label>
+			
+			<input onclick="sendData()" type="button" class="buttonload" id="Up" name="Up" value="Upload">
+		</form>
+		<button class="buttonload" id="load">
+  			<i class="fa fa-refresh fa-spin"></i>Loading...
+		</button>
+
+
+
+	</div>
+</div>
+</body>
+</html>

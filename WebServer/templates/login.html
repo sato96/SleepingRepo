@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html style="background: url(static/css/Resources/moon-tree-wallpaper.jpg);background-size: cover; background-repeat: repeat-y; height: 100%; width: 100%">
+<head>
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styleLogin.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styleNavBar.css')}}">
+		<script type = "text/javascript" src =  "{{ url_for('static', filename='js/User.js') }}"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<nav>
+	<div class="topnav">
+		<a href="#contact">Contact</a>
+		<a href="{{ url_for('GET', uri='aboutus') }}">About</a>
+		<a class="active" href="{{ url_for('GET', uri='login') }}">Login</a>
+	</div>
+
+</nav>
+<body>
+
+	<!-- classe text, tutte le scritte bianche-->
+	<div class="text">
+		<h1>Welcome to the first sleeping data repository</h1>
+		<h2>Login</h2>
+
+		<!--Qui devo poi metterci un js per la validazione del form e per il post che farò al server  action = "?action=subscribe" method = "POST"-->
+		<form id="form">
+		  <label for="uname">Username:</label><br>
+		  <input type="text" placeholder="Type your username" id="uname" name="uname"><br>
+		  <label for="psw">Password:</label><br>
+		  <input type="password" placeholder="Type your password" id="psw" name="psw"><br>
+		  <input type="checkbox" name="rememberMe" id="rememberMe"> <label id="check" for="rememberMe">Remember me</label>
+		  <p id="forgot"><a href="{{ url_for('GET', uri='resetpsw') }}">Forgot login details?</a></p><br>
+		  <input type="button" onclick="login()" value="Login">
+		</form>
+		<div class="sub">
+			<label id="new">Don't have an account?</label> <p id="sub"><a href="{{ url_for('GET', uri='signup') }}">Sign up</a></p><br>
+		</div>
+	</div>
+
+	</body>
+</html>

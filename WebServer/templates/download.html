@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html style="background: url(static/css/Resources/moon-tree-wallpaper.jpg);background-size: cover; background-repeat: no-repeat; height: 100%; width: 100%">
+<head>
+</head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styleNavBar.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styleDownload.css')}}">
+	<script type = "text/javascript" src =  "{{ url_for('static', filename='js/User.js') }}"></script>
+	<script type = "text/javascript" src =  "{{ url_for('static', filename='js/Data.js') }}"></script>
+
+<!-- Navigation -->
+<nav>
+	<div class="topnav">
+		<a class="active" href="{{ url_for('GET', uri='download') }}">Download</a>
+		<a href="{{ url_for('GET', uri='upload') }}">Upload</a>
+		<a href="#contact">Contact</a>
+		<a href="{{ url_for('GET', uri='aboutus') }}">About</a>
+		<a onclick="delCookie()" href="{{ url_for('GET', uri='login') }}">Logout</a>
+	</div>
+
+</nav>
+<div class="container" style="margin: auto; max-width: 800px; box-sizing: border-box; height: 90%">
+<body onLoad="checkPermission(); getInstitutes();">
+
+	<!-- classe text, tutte le scritte bianche-->
+	<div class="text">
+		<h2>Select your parameters, then click "Download" button</h2><br>
+		<p id="tab">Select data</p>
+		<form id="signals">
+			<table id="data">
+				<tr>
+					<th>Electrical signals</th>
+					<th>Mechanical signals</th>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" id="Eeg" name="Eeg" value="Eeg" required>
+					<label for="Eeg">EEG</label></td>
+
+					<td><input type="checkbox" id="G" name="G" value="G">
+					<label for="G">Centre of gravity </label></td>
+
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" id="Ecg" name="EcgEcg" value="Ecg">
+					<label for="Ecg">ECG</label></td>
+					<td><input type="checkbox" id="FootLeft" name="FootLeft" value="FootLeft">
+					<label for="FootLeft">Feet</label></td>
+				</tr>
+				<!-- da ora in poi FootLeft sono i feet -->
+				<tr>
+					<td><input type="checkbox" id="Emg" name="Emg" value="Emg">
+					<label for="Emg"> EMG</label></td>
+					<td><input type="checkbox" id="NasalFlow" name="NasalFlow" value="NasalFlow">
+					<label for="NasalFlow">Nasal flow</label></td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" id="Eog" name="Eog" value="Eog">
+					<label for="Eog"> EOG</label></td>
+					<td><input type="checkbox" id="SpO2" name="SpO2" value="SpO2">
+					<label for="SpO2">SpO2</label></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="Impedence" name="Impedence" value="Impedence">
+					<label for="Impedence">Impedence </label></td>
+					<td></td>
+				</tr>
+				
+			</table>
+		</form>
+		<form id="filter">
+			<table id="filters">
+				<tr>
+					<th colspan=3 style="text-align: center;">Filters</th>
+				</tr>
+				<tr id="MachineID_F">
+					<td>Resource Id</td>
+					<td><select name="identifier" id="mId" onChange="Personalize.call(this, event)" required>
+						<option value="ALL">ALL</option>
+						<option value="=">Personalized</option></td>
+					</select>
+					<td><input type="text" id="mId1" name="RefID" readonly="true"></td>
+				</tr>
+				<tr id="Date_F">
+					<td>Date</td>
+					<td><select name="date" id="signDate" required>
+						<option value="ALL">ALL</option>
+						<option value="=">Equal</option>
+						<option value="<">Before</option>
+						<option value=">">After</option>
+					</select>
+					</td>
+					<td><input type="date" id="RefDate" name="RefDate"></td>
+				</tr>
+				<tr id="Institution_F">
+					<td>Institution</td>
+					<td><select name="performer.issuer.display" id="institute" onChange="Personalize.call(this, event)"required>
+						<!--fai un js che li aggiunge in base a quelli disponibili(?)-->
+						<option value="=">Personalized</option>
+						<option value="ALL">ALL</option>
+					</select>
+					</td>
+					<td><input type="text" id="institute1" placeholder="More than one divided by ','" name="institute1" required="true"></td>
+				</tr>
+				<tr id="Researcher_F">
+					<td>Researcher</td>
+					<td><select name="performer" id="Res">
+						<option value="ALL">ALL</option>
+						<option value="=">Me</option>			    	
+					</select>
+					</td>
+					<td><input type="nulla" id="nulla" name="nulla" readonly="true"></td>
+				</tr>
+			</table>
+		</form>
+			<input type="button" onclick="getInfo()" class="buttonload" id="Down" name="Down" value="Download">
+			<button class="buttonload" id="load">
+  				<i class="fa fa-refresh fa-spin"></i>Loading...
+			</button>
+
+	</div>
+
+</body>
+</div>
+</html>
