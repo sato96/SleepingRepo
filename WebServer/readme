@@ -4,3 +4,7 @@ Se si ha a disposizione un dominio pubblico è necessario cambiare una piccola v
 la variabile app.urlself deve essere messa posta uguale al proprio dominio. Avevo fatto delle prove con noip ma non aveva funzionato
 ci sarebbe da capire come mai. Cherrypy andava bene. Non avendo un vero dominio pubblico personale non ho potuto fare nulla.
 Forse c'è da cambiare anche "host" a riga 285, ma appunto non ho provato.
+
+Gli html non funzionano se non vengono aperti tramite webpage semplicemente perché si aprono le funzioni per l'autenticazione.
+Su webpage chiaramente vanno cambiati anche gli url chiamati app.url1 e app.url2 perché indicavano la macchina virtuale.
+Ora bisogna vedere su quale ip e quale porta sarà messo il middleware.
