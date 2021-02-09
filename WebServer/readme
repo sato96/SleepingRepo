@@ -1,1 +1,6 @@
-
+Questa è la cartella da prendere per il web server.
+Non bisogna cambiare l'ordine della cartelle che sono di default. Basta far partire webpage.py e il sistema funziona in LAN.
+Se si ha a disposizione un dominio pubblico è necessario cambiare una piccola variabile su webpage:
+la variabile app.urlself deve essere messa posta uguale al proprio dominio. Avevo fatto delle prove con noip ma non aveva funzionato
+ci sarebbe da capire come mai. Cherrypy andava bene. Non avendo un vero dominio pubblico personale non ho potuto fare nulla.
+Forse c'è da cambiare anche "host" a riga 285, ma appunto non ho provato.
