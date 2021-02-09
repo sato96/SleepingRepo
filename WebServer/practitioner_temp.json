@@ -1,0 +1,42 @@
+{
+   "resourceType" : "Practitioner",
+      "identifier":[
+      {
+         "value":"uname"
+      }
+   ],
+   "name":
+   {
+         "family":"surname",
+         "given": "name"
+   },
+   "telecom":
+   {
+         "system":"email",
+         "value":"mail"
+   },
+   "qualification":[
+      {
+         "identifier":[
+         {
+         "value":"researcher"
+         }
+
+      ],
+      "code":{
+            "coding":[
+               {
+                  "system":"http://terminology.hl7.org/CodeSystem/practitioner-role",
+                  "code":"researcher",
+                  "display": "Researcher"
+               }
+            ]
+         },
+      "issuer": {
+         "display": "Example University"
+      }
+
+      }
+   ]
+
+}

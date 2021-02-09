@@ -1,0 +1,23 @@
+
+
+{"Eeg":"eeg", 
+"G":"gyro",
+"Ecg":"ekg",
+"FootLeft":"feet",
+"Emg":"emg",
+"NasalFlow":"nasalflow",
+"Eog":"eog",
+"SpO2":"Spo2",
+"Impedence":"impedence",
+
+"gyro":"Centre_Of_Gravity", 
+"eeg":"EEG", 
+"ekg":"EKG", 
+"emg":"EMG", 
+"eog": "EOG", 
+"Spo2": "SpO2", 
+"feet":"Feet", 
+"nasalflow": "Nasal_Flow",
+"impedence":"Impedence"}
+
+
