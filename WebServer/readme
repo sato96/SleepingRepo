@@ -1,3 +1,4 @@
+# Web server
 Questa è la cartella da prendere per il web server.
 Non bisogna cambiare l'ordine della cartelle che sono di default. Basta far partire webpage.py e il sistema funziona in LAN.
 Se si ha a disposizione un dominio pubblico è necessario cambiare una piccola variabile su webpage:
@@ -8,3 +9,7 @@ Forse c'è da cambiare anche "host" a riga 285, ma appunto non ho provato.
 Gli html non funzionano se non vengono aperti tramite webpage semplicemente perché si aprono le funzioni per l'autenticazione.
 Su webpage chiaramente vanno cambiati anche gli url chiamati app.url1 e app.url2 perché indicavano la macchina virtuale.
 Ora bisogna vedere su quale ip e quale porta sarà messo il middleware.
+
+Ci sono più versioni di data_handle. Cambiano di poco, ossia cambia il modo in cui gestiscono gli edf in base all'hardware. La soluzione adottata è un buon compromesso e non richiede l'uso di semafori o cose simili. Se si usa la versione "backup" che salva titanicamente tutto l'edf in un unico FHIR consiglio caldamente di bloccare ogni altro thread e andare avanti con quello. Poi, per quando il file arriverà su Mirth non ho idea di cosa possa succedere, gestendo tutto su una macchina con una ram non sufficiente allo scopo non mi sono mai posto il problema perché l'edf intero con me non è mai partito. E su Mirth è impensabile che arrivi per il semplice fatto che stava su una macchina virtuale estremamente limitata (funzionava su hdd e aveva solo 3 GB di ram). Ora come ora data_Handle divide l'edf e crea un file FHIR per ogni segnale che incontra.
+
+Ho provato su relativamente pochi "esemplari" dei vari formati quindi potrei non aver generalizzato abbastanza.
