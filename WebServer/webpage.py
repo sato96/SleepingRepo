@@ -61,8 +61,8 @@ def GET(uri):
 
 	if uri == "confirm":
 		#caso particolare di un link che deve portare ad una pagina a vuoto
-		user = app.uh.confirmU(params["epona"])
-		s = "AboutUs.html"#pagina placeholder
+		user = app.uh.confirmU(request.args.get('epona'))
+		s = "aboutus.html"#pagina placeholder
 	elif uri == "institute":
 		with open ("institutes.json", "r") as f:
 			inst = json.load(f)
