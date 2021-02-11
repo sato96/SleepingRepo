@@ -2,7 +2,7 @@
 Tesi di laurea magistrale in eHealth al Politecnico di Torino
 La tesi si pone come obiettivo quello di raccogliere i dati sul sonno, di convertirli secondo lo standard FHIR e salvare il tutto in un database.
 
-# Come farla funzionare
+# Come farlo funzionare
 Le due cartelle sono i due dispostivi che vengono inizializzati (se uno vuole può mettere il db su un altro pc in lan ma vabe inutile). Uno è il pc che deve avere un ip pubblico in modo da essere raggiungibile anche dalle Molinette, per esempio. L'altro deve essere letteralmente trincerato perché non ha manco la connessione crittografata. In più è quello dove sono i dati. Le cartelle devono avere la struttura che hanno su github altrimenti i path non corrispondono. Inoltre i codici sono scritti sono linux per linux. Non vengono impartiti comandi bash però i percorsi sono con  '/' anziché con '\' che usa Windows, quindi se si usa su Windows non funziona niente. Se si vuole usare Windows (capisco che molti si trovino meglio) forse si può usare il nuovo kernel linux che Microsoft ha implementato. Altrimenti si devono cambiare a mano i path (forse avrei dovuto mettere qualcosa di più comodo per cambiare os, non ci ho pensato sinceramente). Sul webserver si usa Python3 (html javascript e css non hanno problemi). Sulla pagina non ho usato alcun framework di JavaScript (era un po' più semplice da fare e non essendo un web designer a me importava che le interfacce fossero solo chiare e JavaScript normale fa il suo lavoro). Come librerie ci sono tutte le dipendenze. In fase di debug va benissimo lanciare webpage.py con il comando: 
 ``` Bash
 sudo Python3 webpage.py
