@@ -114,6 +114,7 @@ class userHandle(object):
 
 				#provo a mandare il dato al db, se non riesco devo dare tutto esito negativo
 				db = self.__sendToDb(dati, url)
+				#db = True
 
 			else:
 				db == True
