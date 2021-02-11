@@ -21,9 +21,12 @@ Mirth è composto dal server e dall'administrator panel. Quest'ultimo è install
 # Tips
 I certificati per la crittografia ssl che ho caricato nella cartella webpage sono "self signed". Si possono usare ma se la cosa si fa seria io proverei a farlo firmare da let's encrypt, per esempio, perché è gratis e non da noie con la privacy. Cioè la sicurezza del certificato e della chiave c'è ma siccome non è firmato da un ente un browser che si connette al portale avvertirà l'utente che potrebbero esserci problemi di sicurezza (perché appunto non c'è nessuno che ha dato l'ok su quel certificato). Come dicevo se un medico vede sta roba potrebbe impanicarsi un po' se non gli si spiega bene.
 Come dicevo anche nella tesi se si vuole star sicuri i file json nel webserver dove vengono salvati gli utenti vanno crittografati.
-Gli sviluppi futuri sono nella tesi, se si vuole sapere come migliorare il progetto... C'è tanto lavoro da fare!
-Non ho usato librerie standard per FHIR, tranne che con la risorsa bundle, per semplicità. Dovrebbero esserci comunque delle librerie. Utile se si volesse aggiungere il supporto a FHIR anche in XML.
+Le cose da aggiungere sono nella tesi, nella parte "Sviluppi futuri". Per favore continuate perché c'è tanto lavoro da fare!
+Non ho usato librerie standard per FHIR, tranne che con la risorsa bundle, per semplicità. Dovrebbero esserci comunque delle librerie Python. Utile se si volesse aggiungere il supporto a FHIR anche in XML. In Java, appunto le ho già usate e c'è tutto se si vuole usare qualcosa di pre fabbricato in Javascript. Si consideri, però che quando vengono caricati i dati sul database faccio un giochino per alleggerire il carico sul middleware 
 Penso sia tutto.
+
+# Come aggiungere segnali
+Se si vuole aggiungere un segnale bisogna modificare il file download.html e inserire il nome del segnale nella tabella giusta. Poi bisogna aggiungere il segnale alla look_up_table ed eventualmente nei metodi di conversione in FHIR (tranne quando si prende già un json). Poi spostandosi su Mirth bisogna cambiare la trafila di if in create e aggiungendo il segnale e cambiare in search la lunghezza del segnale. Infine si aggiunge il segnale al db. NB in fase di create non sono riuscito a fare meglio. Avrei potuto fare un ciclo per tirare fuori qualcosa di più generico ma ho bisogno di assegnare ad una variabile il valore nell'ordine giusto. Non conscendo l'ordine di arrivo nei messaggi (un json per definizione non è una collezione ordinata di dati) non ho saputo fare di meglio.
 
 
 
