@@ -1,23 +1,23 @@
 
 
-{"Eeg":"eeg", 
-"G":"gyro",
-"Ecg":"ekg",
-"FootLeft":"feet",
-"Emg":"emg",
-"NasalFlow":"nasalflow",
-"Eog":"eog",
-"SpO2":"Spo2",
-"Impedence":"impedence",
+{"Eeg":"18648009", 
+"G":"733919004",
+"Ecg":"46825001",
+"FootLeft":"364516009",
+"Emg":"252754006",
+"NasalFlow":"370485008",
+"Eog":"164044003",
+"SpO2":"103228002",
+"Impedence":"4665007",
 
-"gyro":"Centre_Of_Gravity", 
-"eeg":"EEG", 
-"ekg":"EKG", 
-"emg":"EMG", 
-"eog": "EOG", 
-"Spo2": "SpO2", 
-"feet":"Feet", 
-"nasalflow": "Nasal_Flow",
-"impedence":"Impedence"}
+"733919004":"Centre_Of_Gravity", 
+"18648009":"EEG", 
+"46825001":"EKG", 
+"252754006":"EMG", 
+"164044003": "EOG", 
+"103228002": "SpO2", 
+"364516009":"Feet", 
+"370485008": "Nasal_Flow",
+"4665007":"Impedence"}
 
 
