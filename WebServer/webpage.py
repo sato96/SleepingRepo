@@ -5,7 +5,7 @@ import json
 import dataHandle 
 
 from userHandle import userHandle
-from userHandle import get_ip
+from net import get_ip
 import threading
 from flask import Flask, url_for, request, render_template, redirect, send_from_directory, make_response
 
@@ -18,11 +18,26 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 app.config['SESSION_COOKIE_HTTPONLY'] = True,
 
 app.uh = userHandle("dati.json")
-#qui va sostituito con i file di configurazione
-app.url1 = 'http://'+get_ip()+":1025"
-app.url2 = 'http://'+get_ip() + ":1026"
-app.urlself = 'https://'+get_ip()
-#app.urlself = 'https://sleepingrepo.ddns.net'
+#controllo del file di configurazione, se è vuoto uso gli url di default
+
+with open("urlConfig.json", "r") as f:
+	conf = json.load(f)
+f.close()
+
+if conf["url1"] == "":
+	app.url1 = 'http://'+get_ip()+":1025"
+else:
+	app.url1 = conf["url1"]
+
+if conf["url2"] == "":
+	app.url2 = 'http://'+get_ip()+":1026"
+else:
+	app.url1 = conf["url2"]
+if conf["urlself"] == "":
+	app.urlself = 'https://'+get_ip()
+else:
+	app.urlself = conf["urlself"]
+
 app.shared_lock = threading.Lock()
 
 #flask ragiona a route
@@ -45,7 +60,8 @@ def index():
 			s = "login"
 	except:
 		s = "login"
-	return redirect("https://" + get_ip() + "/" + s)
+	#return redirect("https://" + get_ip() + "/" + s)
+	return redirect("/" + s)
 
 
 @app.route('/favicon.ico')
@@ -195,7 +211,7 @@ def POST(myFile = None):
 					tmp=tmp.replace(" ", "_")
 					filt=filt +"&"+key+"=" + tmp
 
-			req=app.url1 + "/observation?code=28633-6" + filt + inf + ist
+			req=app.url1 + "/observation?code=60554003" + filt + inf + ist
 
 
 
@@ -280,6 +296,4 @@ def cookies():
 
 if __name__ == "__main__":
 
-	#metto il certificato e le chiavi
-	context = ('cert.pem', 'privkey.pem')
-	app.run(ssl_context=context, host=get_ip(), port="443", debug=True)
+	app.run()
